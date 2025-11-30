@@ -1,0 +1,15 @@
+---
+---
+
+/* 整个文章区域背景色 */
+main article {
+  background: #e7e7e7 !important;   /* 你想要的颜色 */
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+/* 让 main 的周围留一点空白（避免贴边难看） */
+main {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}

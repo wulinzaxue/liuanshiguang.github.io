@@ -1,0 +1,144 @@
+---
+---
+/* ===================================================================
+   Chirpy 主题背景美化完整方案 (增强版)
+   功能：背景图 + 蒙版 + 顶部栏透明修复 + 搜索栏优化 + 文字可读性
+   =================================================================== */
+
+/* --- 1. 全局页面背景和蒙版 --- */
+body {
+  /* 背景图路径，请确保图片放在 /assets/img/ 目录下或使用有效链接 */
+  background-image: url('/assets/img/home-bg.jpg'); 
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 背景遮罩，可调整 0.55 这个值来改变深浅 */
+  background-color: rgba(0, 0, 0, 0.40); 
+  z-index: -1;
+}
+
+/* --- 2. 移除各主要区域的背景，实现通透效果 --- */
+#sidebar,
+#main-wrapper > .container > .row > .col-lg-11, /* 针对主要内容区域 */
+#main-wrapper,
+.card,
+.pagination,
+footer {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* --- 3. 优化文字和图标颜色，确保在深色背景下可读 --- */
+
+/* 侧边栏 */
+#sidebar .site-title a,
+#sidebar .site-tagline,
+#sidebar .nav-link .text,
+#sidebar .nav-link i,
+#sidebar .profile-wrapper .social-icons a {
+  color: #fff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* 侧边栏当前选中项 */
+#sidebar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 底部版权信息 */
+footer .copyright {
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* 文章预览 */
+.post-preview .post-title a,
+.post-preview .post-content,
+.post-title,
+.post-meta,
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6,
+.post-content p, .post-content li {
+  color: #f1f1f1; /* 使用稍暗的白色提高舒适度 */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* --- 4. 顶部栏和搜索框 (关键修复部分) --- */
+
+/* 
+  [关键修复] 使用最强规则强制移除顶部栏背景
+  这会覆盖主题自带的任何背景、阴影和毛玻璃效果
+*/
+#topbar,
+#topbar-wrapper { /* 同时选择 topbar 和它可能的包装器 */
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important; /* 强制移除毛玻璃效果 */
+}
+
+/* 顶部面包屑导航的文字颜色 */
+#topbar #breadcrumb a,
+#topbar #breadcrumb .breadcrumb-item.active {
+  color: #fff !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+#topbar #breadcrumb .breadcrumb-item::before {
+    color: #fff !important; /* 分隔符颜色 */
+}
+
+/* ✅ 改进后的搜索框样式，实现“磨砂玻璃”质感 */
+#search-input {
+  background-color: rgba(255, 255, 255, 0) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #222 !important; /* 深色输入文字，保证清晰 */
+  border-radius: 8px; /* 圆角稍大更现代 */
+  padding: 6px 12px;
+  transition: all 0.25s ease-in-out;
+  backdrop-filter: blur(6px); /* 磨砂玻璃效果 */
+}
+
+#search-input::placeholder {
+  color: rgba(80, 80, 80, 0.8) !important;
+}
+
+#search-input:focus {
+  background-color: #fff !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+/* 搜索结果弹窗优化 */
+#search-results {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+#search-results .result-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#search-results .result-item a {
+  color: #f1f1f1 !important;
+}
+
+#search-results .result-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- 5. 移动端菜单按钮颜色修复 --- */
+#sidebar-trigger, #search-trigger {
+    color: #fff !important;
+}

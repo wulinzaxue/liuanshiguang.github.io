@@ -1,0 +1,236 @@
+---
+---
+
+/* assets/css/custom.scss */
+
+// --- 全局页面背景和蒙版 ---
+
+// 1. 将背景和蒙版应用到 <body> 元素，使其覆盖整个页面
+body {
+  // 设置背景图片
+  background-image: url('/assets/img/home-bg.jpg'); // 确保图片路径正确
+  background-size: cover;          // 图片铺满整个屏幕
+  background-position: center;     // 图片居中显示
+  background-attachment: fixed;    // 固定背景，滚动时产生视差效果
+
+  // 使用 ::before 伪元素创建覆盖整个视口的蒙版
+  &::before {
+    content: '';
+    position: fixed; // 使用 fixed 定位，确保蒙版始终覆盖整个浏览器窗口
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    // --- 在这里调整蒙版的颜色和透明度 ---
+    // 格式为 rgba(红, 绿, 蓝, 透明度)，透明度 0.0 到 1.0
+    background-color: rgba(0, 0, 0, 0.55); // 这是一个 55% 透明的黑色蒙版
+
+    z-index: -1; // 将蒙版置于所有内容的下方
+  }
+}
+
+
+// --- 2. 将各个区块的背景设置为透明 ---
+
+// 将左侧边栏、顶部栏、主内容区、底部栏的背景都去掉，
+// 以便透出下面的 <body> 背景
+#sidebar,
+#topbar,
+#main-wrapper,
+footer,
+.card { // .card 是很多小组件的通用容器，比如标签云
+  background: transparent !important; // 使用 !important 强制覆盖主题默认样式
+  border: none !important; // 同时去掉边框，视觉效果更统一
+}
+
+
+// --- 3. 调整文字和图标颜色以保证可读性 ---
+
+// 左侧边栏的文字和图标
+#sidebar .site-title a,
+#sidebar .site-tagline,
+#sidebar .nav-link .text,
+#sidebar .nav-link i,
+#sidebar .profile-wrapper .social-icons a {
+  color: #fff !important; // 设置为白色
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); // 添加文字阴影增加对比度
+}
+
+// 左侧边栏当前激活链接的背景
+// 把它从纯色变成一个半透明的亮色，表示选中状态
+#sidebar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+// 顶部栏（面包屑导航）的文字
+#topbar #breadcrumb a {
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+// 底部栏的版权文字
+footer .copyright {
+  color: #ccc; // 可以用稍暗的灰色，不那么抢眼
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+// 主内容区的文章列表文字（之前已经加过，这里保留）
+.post-preview .post-title a,
+.post-preview .post-content {
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+// --- 4. 修复顶部栏和搜索框背景 (最终透明版) ---
+
+#topbar {
+  // 最直接的方法：强制将背景设置为完全透明
+  background: transparent !important;
+
+  // 移除任何可能存在的边框和阴影，避免出现线条
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// 移除面包屑导航项自带的浅色背景，让 topbar 的背景透出来
+#topbar #breadcrumb .breadcrumb-item {
+    background-color: transparent !important;
+}
+
+// 确保面包屑导航的文字是白色，保证清晰可读
+#topbar #breadcrumb .breadcrumb-item a {
+    color: #fff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+// 统一搜索框的样式，使其更好地融入
+#search-input {
+  background-color: rgba(255, 255, 255, 0.2) !important; // 半透明的白色背景
+  border: 1px solid rgba(255, 255, 255, 0.3) !important; // 一个淡淡的边框
+  color: #fff !important; // 让输入进去的文字变成白色
+}
+
+// 修改搜索框里“搜索...”占位符文字的颜色
+#search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+// 为弹出的搜索结果列表也加上样式
+#search-results {
+  background-color: rgba(30, 30, 30, 0.9) !important; // 深色半透明背景
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  .result-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    a {
+      color: #eee !important;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+      }
+    }
+  }
+}
+
+
+// ---
+// ---
+
+// /* assets/css/custom.scss */
+
+// // --- 主页背景图片和蒙版 ---
+
+// // 我们选择 #main-wrapper 作为背景的目标
+// // 因为它是主页内容的核心容器
+
+
+// #main-wrapper {
+//   // 1. 设置背景图片
+//   background-image: url('/assets/img/post-background.jpg'); // 确保这里的路径和你的图片路径一致
+//   background-size: cover; // 让图片完全覆盖整个区域，可能会裁剪部分图片
+//   background-position: center; // 图片居中显示
+//   background-attachment: fixed; // 固定背景，滚动时不随之移动，产生视差效果
+
+//   // 2. 使用 ::before 伪元素创建蒙版
+//   position: relative; // 必须设置，为伪元素的绝对定位提供基准
+//   z-index: 1; // 确保内容在蒙版之上
+
+//   &::before {
+//     content: ''; // 伪元素必须有 content 属性
+//     position: absolute; // 绝对定位，相对于 #main-wrapper
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+
+//     // --- 在这里调整蒙版的颜色和透明度 ---
+//     // 使用 rgba 格式，前三个值是RGB颜色，第四个值是透明度 (0到1)
+//     // 0.5 代表 50% 的透明度。数值越大，蒙版越不透明。
+//     // 你可以改成黑色蒙版: rgba(0, 0, 0, 0.5)
+//     // 或者深蓝色蒙版: rgba(25, 25, 112, 0.6)
+//     background-color: rgba(0, 0, 0, 0.5);
+
+//     z-index: -1; // 将蒙版置于内容的下方，背景的上方
+//   }
+// }
+
+// // --- 确保内容区域的背景是透明的 ---
+
+// // 为了让下面的背景和蒙版能透出来，
+// // 我们需要把原来白色的内容区域背景设置为透明。
+// #home .dynamic-list,
+// .post-content,
+// #sidebar .card-body {
+//   background-color: transparent !important;
+//   color: #fff; // 将主要文字颜色改为白色以保证可读性
+// }
+
+// // 如果你觉得文章列表的边框不好看，可以用下面的代码去掉
+// .post-preview {
+//     border: none !important;
+// }
+
+// // 提高文章标题和摘要的可读性
+// .post-preview .post-title a,
+// .post-preview .post-content {
+//     color: #fff; // 将标题和摘要文字设为白色
+//     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); // 给文字添加一点阴影，增强对比度
+// }
+
+// // --- （可选）如果你希望分页按钮的背景也透明 ---
+// .pagination .page-item .page-link {
+//     background-color: transparent !important;
+// }
+
+
+
+
+
+
+
+// ---
+// ---
+// /* 我是最终的自定义样式文件 */
+// * {
+//   border: 2px solid red !important;
+// }
+
+
+
+// #panel-wrapper {
+//   background:
+//     linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+//     url('/assets/img/post-background.jpg'); /* 注意：这里不再需要 !important */
+
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   background-attachment: fixed;
+//   background-size: cover;
+  
+//   /* 建议：为了让背景图不被白色内容块完全遮挡，可以给内容块加一点透明度 */
+//   #notification {
+//     background-color: rgba(255, 255, 255, 0.85); /* 85%透明度的白色背景 */
+//   }
+// }
