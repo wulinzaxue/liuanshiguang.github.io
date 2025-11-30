@@ -38,7 +38,7 @@ social:
   email: 482245252@qq.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/lli454704040311 # change to your Twitter homepage
+    - https://x.com/lli454704040311 # change to your Twitter homepage
     - https://github.com/wulinzaxue # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -59,7 +59,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-SW35ZPW8E4 # fill in your Google Analytics ID
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
