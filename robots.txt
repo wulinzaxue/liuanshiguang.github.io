@@ -1,0 +1,27 @@
+---
+layout: null
+---
+User-agent: *
+Allow: /
+
+# --- 针对 AI 爬虫的拦截规则 ---
+
+# 禁止 Google 的 AI 训练 (Bard/Gemini)
+User-agent: Google-Extended
+Disallow: /
+
+# 禁止 ChatGPT (OpenAI)
+User-agent: GPTBot
+Disallow: /
+
+# 禁止 Common Crawl (很多开源 AI 模型的数据源)
+User-agent: CCBot
+Disallow: /
+
+# 禁止 Claude (Anthropic)
+User-agent: Anthropic-ai
+Disallow: /
+
+# --- 站点地图指引 ---
+# 请把下面的网址换成你真实的域名
+Sitemap: https://liuanshiguang.dpdns.org/sitemap.xml
