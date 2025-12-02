@@ -34,3 +34,11 @@ The purpose of writing this blog is simple:
 如果你愿意，也欢迎常来光临！  
 If you like, you're always welcome to drop by!
 
+---
+
+### 联系作者
+
+我以前主要在做公众号，现在把一些实用教程、工具经验整理到这个博客，方便朋友们查阅和讨论。
+
+如果你在使用某些工具时遇到问题，或者想交流资源整理、博客搭建等内容，可以加入交流Q群：[1065178936](https://qun.qq.com/universal-share/share?ac=1&authKey=G1KcQ3TpOW5ZR42WgBezWNlv3LFSO/D0Yr6jW%2Btoem2Yci/tcmSw1N/a9rfpPCVt&busi_data=eyJncm91cENvZGUiOiIxMDY1MTc4OTM2IiwidG9rZW4iOiJON2E3YWZRVVVyT0E5emE5U08yRnpKVjMzckN1aUNaOTZRS0FpdlNnOG1XZzlldUdXUStDZ2x1T0E1R0RTZk9UIiwidWluIjoiNDgyMjQ1MjUyIn0=&data=efaaI4Z3MuW2SKIi6Dk1RSbY0f51vyeBAbRQNJHc0NlGedT51Z0kGx0wh3ZxaK3Yp8vWiTD57-sZ-g65Ijp5Aw&svctype=4&tempid=h5_group_info)
+

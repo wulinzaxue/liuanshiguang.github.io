@@ -1,11 +1,9 @@
 ---
-title: yt-dlp｜下载YouTube高清视频，可自定义画质、音质！
+title: 视频下载｜yt-dlp，下载YouTube高清视频，自定义画质、音质！
 date: 2025-11-30 14:05:58 +0800
-
 last_modified_at: 2025-12-01 21:36:23 +0800
-
-categories: [工具教程, 视频下载]  # 这里添加了子分类
-tags: [Windows, yt-dlp, 视频下载, 命令行工具, ffmpeg, YouTube, 教程]
+categories: [工具教程,视频下载]  # 这里添加了子分类
+tags: [Windows, 视频下载]
 ---
 
 
@@ -17,7 +15,7 @@ tags: [Windows, yt-dlp, 视频下载, 命令行工具, ffmpeg, YouTube, 教程]
 
 通过简单的命令行指令，我们不仅可以下载视频，还能自由选择画质、音质，甚至抓取网页中的所有媒体文件。
 
-## 一、获取工具
+## 获取工具
 
 [工具下载地址](https://github.com/yt-dlp/yt-dlp/releases)
 
@@ -25,7 +23,7 @@ tags: [Windows, yt-dlp, 视频下载, 命令行工具, ffmpeg, YouTube, 教程]
 
 ![alt text](https://shiguangtuku.dpdns.org/file/AgACAgUAAyEGAATAfiiVAAMZaS2MF22BB7qaOrndzOSWruL2iqcAAkgNaxvOuGhVa60dKL-H3cEBAAMCAAN5AAM2BA.png)
 
-## 二、基础用法：下载视频
+## 基础用法：下载视频
 
 **打开命令行：**进入存放 yt-dlp.exe 的文件夹，在资源管理器的地址栏中输入 cmd 并回车。
 
@@ -34,7 +32,7 @@ tags: [Windows, yt-dlp, 视频下载, 命令行工具, ffmpeg, YouTube, 教程]
 
 **执行下载命令：**在弹出的黑色命令行窗口中，输入以下格式的命令：
 
-```
+```bash
 # CMD 命令：yt-dlp.exe+空格+视频网址
 yt-dlp.exe https://www.youtube.com/watch?v=xxxxxxxx
 ```
@@ -43,7 +41,7 @@ yt-dlp.exe https://www.youtube.com/watch?v=xxxxxxxx
 
 以下载 YouTube 视频为例，执行过程如下：
 
-```
+```bash
 # 链接仅为示例，支持大多数主流媒体网站
 yt-dlp.exe https://www.youtube.com/watch?v=iZ3b305mx00
 ```
@@ -58,25 +56,25 @@ yt-dlp.exe https://www.youtube.com/watch?v=iZ3b305mx00
 
 ![](https://shiguangtuku.dpdns.org/file/AgACAgUAAyEGAATAfiiVAAMcaS2MNSA2o8gYoWmkdEbcn__676oAAksNaxvOuGhV_snx0Bpb89sBAAMCAAN5AAM2BA.png)
 
-## 三、进阶技巧：自定义画质与音质
+## 进阶技巧：自定义画质与音质
 
 默认情况下工具会自动下载最佳画质，但你也可以手动选择。首先，我们需要查看视频包含哪些格式。
 
 **查看可用格式:**输入以下命令（注意 -F 为大写）：
 
-```
+```bash
 yt-dlp -F "https://www.youtube.com/watch?v=iZ3b305mx00"
 ```
 
 系统会列出该视频所有可用的流媒体信息，关键参数解读如下：
 
-```
-ID: 格式的唯一编号，这是你选择格式时需要用到的关键信息。
-EXT: 文件扩展名（如 mp4, webm, m4a）。
-RESOLUTION: 视频分辨率（如 1920x1080, 1280x720）或音频信息。
-FPS: 视频的帧率。
-Note: 额外信息，比如 "4K"、"HDR" 或者 "storyboard"。
-vcodec/acodec: 视频/音频编码格式。
+```bash
+# ID: 格式的唯一编号，这是你选择格式时需要用到的关键信息。
+# EXT: 文件扩展名（如 mp4, webm, m4a）。
+# RESOLUTION: 视频分辨率（如 1920x1080, 1280x720）或音频信息。
+# FPS: 视频的帧率。
+# Note: 额外信息，比如 "4K"、"HDR" 或者 "storyboard"。
+# vcodec/acodec: 视频/音频编码格式。
 ```
 
 **指定格式下载:**通常高质量视频是“画面”和“声音”分离的。
@@ -87,14 +85,14 @@ vcodec/acodec: 视频/音频编码格式。
 
 使用 -f（小写）参数，并用 + 号连接两个ID：
 
-```
+```bash
 yt-dlp -f 399+251 "https://www.youtube.com/watch?v=iZ3b305mx00"
 ```
 
 ![alt text](https://shiguangtuku.dpdns.org/file/AgACAgUAAyEGAATAfiiVAAMOaSwfBtCPFIhlhsfVTCOAqboChi0AAl8LaxvOuGBVkyPunJoI_OQBAAMCAAN5AAM2BA.png)
 
 
-## 四、必备组件：FFmpeg (用于合并音视频)
+## 必备组件：FFmpeg (用于合并音视频)
 
 在下载高清视频时，yt-dlp 经常会将视频流和音频流分开下载。为了让它们自动或手动合并成一个完整的播放文件，我们需要 FFmpeg。
 
@@ -112,22 +110,24 @@ yt-dlp -f 399+251 "https://www.youtube.com/watch?v=iZ3b305mx00"
 
 **手动合并命令：**在命令行中输入以下指令（FFmpeg 同样无UI界面）：
 
-```
+```bash
 ffmpeg -i video.mp4 -i audio.aac -c:v copy -c:a copy output.mp4
 
--c:v copy：不重新编码视频，无损、速度快
--c:a copy：不重新编码音频
-video.mp4：你的视频
-audio.aac：你要合进去的音频
-output.mp4：输出文件
+# -c:v copy：不重新编码视频，无损、速度快
+# -c:a copy：不重新编码音频
+# video.mp4：你的视频
+# audio.aac：你要合进去的音频
+# output.mp4：输出文件
 ```
 
 稍等片刻，文件夹中就会出现合并好的完整视频了。
 
 ![alt text](https://shiguangtuku.dpdns.org/file/AgACAgUAAyEGAATAfiiVAAMRaSwfOWPxud7QkO6z37m8j6AE-IcAAmILaxvOuGBVnj69lJVnGooBAAMCAAN5AAM2BA.png)
 
+## 内容投稿&
+
+文中内容仅供技术学习与交流，涉及的资源均来源于网络，请勿将本工具用于任何其他用途，违者后果自负！
 
 ## 免责声明
 
-免责声明
-本教程仅供技术学习与交流。文中涉及的资源均来源于网络，请勿将本工具用于任何侵犯版权或违法的用途。如若侵权，请联系删除。
+文中内容仅供技术学习与交流，涉及的资源均来源于网络，请勿将本工具用于任何其他用途，违者后果自负！
