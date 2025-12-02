@@ -50,7 +50,7 @@ yt-dlp.exe https://www.youtube.com/watch?v=iZ3b305mx00
 
 
 
-提示：它支持的媒体网站非常多，官方提供了一份详细[详细介绍](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)供查询。
+提示：它支持的媒体网站非常多，官方提供了一份[详细介绍](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)供查询。
 
 
 
@@ -124,9 +124,6 @@ ffmpeg -i video.mp4 -i audio.aac -c:v copy -c:a copy output.mp4
 
 ![alt text](https://shiguangtuku.dpdns.org/file/AgACAgUAAyEGAATAfiiVAAMRaSwfOWPxud7QkO6z37m8j6AE-IcAAmILaxvOuGBVnj69lJVnGooBAAMCAAN5AAM2BA.png)
 
-## 内容投稿&
-
-文中内容仅供技术学习与交流，涉及的资源均来源于网络，请勿将本工具用于任何其他用途，违者后果自负！
 
 ## 免责声明
 
