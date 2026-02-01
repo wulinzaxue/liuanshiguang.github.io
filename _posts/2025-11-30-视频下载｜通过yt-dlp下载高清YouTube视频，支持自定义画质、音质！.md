@@ -1,11 +1,12 @@
 ---
 title: 视频下载｜通过yt-dlp下载高清YouTube视频，支持自定义画质、音质！
 date: 2025-11-30 14:05:58 +0800
-last_modified_at: 2025-12-01 21:36:23 +0800
+last_modified_at: 2025-12-13 20:48:36 +0800
 categories: [工具教程,视频下载]  # 这里添加了子分类
 tags: [Windows, 视频下载]
 image:
   path: https://shiguangtuku.dpdns.org/file/AgACAgUAAyEGAATAfiiVAAM0aTAnmUfmM3Cpp3vLD5hjGIXwPDQAAvQMaxtRe4FVLMBi8mPpevkBAAMCAAN3AAM2BA.png
+description: yt-dlp 详细使用步骤
 ---
 
 
